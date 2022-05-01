@@ -127,7 +127,7 @@ The following scenario demonstrates how to manage traffic between app microservi
 
 Services that are owned by different subteams need to communicate, but the services are deployed in different namespaces within the same cluster. The Accounts team deploys front end, back end, and database services for the app Srv1 in the accounts namespace. The Finance team deploys front end, back end, and database services for the app Srv2 in the finance namespace. Both teams label each service with the `app: Srv1` or `app: Srv2` label and the `tier: frontend`, `tier: backend`, or `tier: db` label. They also label the namespaces with the `usage: accounts` or `usage: finance` label.
 
-![Use a network policy to manage cross-namepspace traffic.](images/cs_network_policy_multi_ns.png) "Use a network policy to manage cross-namespace traffic"){: caption="Figure 1. Use a network policy to manage cross-namespace traffic" caption-side="bottom"}
+![Use a network policy to manage cross-namepspace traffic.](images/cs_network_policy_multi_ns.png){: caption="Figure 2. Use a network policy to manage cross-namespace traffic" caption-side="bottom"}
 
 The Finance team's Srv2 needs to call information from the Accounts team's Srv1 back end. So the Accounts team creates a Kubernetes network policy that uses labels to allow all traffic from the finance namespace to the Srv1 back end in the accounts namespace. The team also specifies the port 3111 to isolate access through that port only.
 
